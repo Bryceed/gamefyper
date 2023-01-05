@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Gamefyper</title>
+        <link rel="stylesheet" href="css/libs/materialize.min.css" />
+        <link rel="stylesheet" href="css/libs/google-fonts.css" />
+        <link rel="stylesheet" href="css/estilos.css" />
+    </head>
+    <style>
+        #writted {
+            font-weight: bold;
+        }
+        #writted, #write, #cursor {
+            display: inline-block;
+            overflow: hidden;
+            font-size: 1em;
+            font-family: monospace;
+        }
+        #cursor {
+            width: 0.5em;
+            height: 1.2em;
+            background-color: rgb(78, 243, 22);
+            animation: blink 1s infinite ease-in-out;
+            position: relative;
+            top: .1em;
+            left: 0.55em;
+        }
+        @keyframes blink {
+            0% {
+                opacity: .7;
+                top: .1em;
+                height: 1em;
+            }
+            50% {
+                opacity: 0;
+                top: -0.55em;
+                height: 0em;
+            }
+            100% {
+                opacity: .7;
+                top: .1em;
+                height: 1em;
+            }
+        }
+    </style>
+    <body>
+        <div class="container">
+            <h1 class="center">Gamefyper</h1>
+            <p class="frase center">
+                <div id="writted"></div>
+                <div id="write"><div id="cursor"></div>Em um ninho de mafagafos, há sete mafagafinhos. Quem desmafaguifar um ninho de mafagafos, bom desmafagafador será.</div>
+            </p>
+
+            <ul class="informacoes center">
+                <li>
+                    <i class="small material-icons icones">description</i>
+                    <span id="tamanho-frase">5</span> palavras
+                </li>
+                <li>
+                    <i class="small material-icons icones">query_builder</i>
+                    <span id="tempo-digitacao">10</span> segundos
+                </li>
+            </ul>
+
+            <textarea
+                class="campo-digitacao"
+                rows="8"
+                cols="40"
+                label="Digite aqui"
+                title="Digite aqui"
+            ></textarea>
+
+            <div class="botoes">
+                <a
+                    id="botao-reiniciar"
+                    class="btn-floating btn-large waves-effect waves-light red"
+                >
+                    <i class="material-icons">restore</i>
+                </a>
+            </div>
+
+            <ul class="center">
+                <li><span id="contador-caracteres">0</span> caracteres</li>
+                <li><span id="contador-palavras">0</span> palavras</li>
+            </ul>
+
+            <section class="placar">
+                <h3 class="center">Placar</h3>
+                <table class="centered bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>No. de palavras</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/placar.js"></script>
+
+        <script>
+            var actualText = document.getElementById("write").innerHTML;
+            var cursor = document.getElementById("cursor");
+
+            function escrever(
+                var frase = document.getElementById("write").innerHTML;
+                var i = 0;
+                var tempo = 100;
+
+                function escrever() {
+                    if (i < frase.length) {
+                        document.getElementById("writted").innerHTML += frase.charAt(i);
+                        i++;
+                        setTimeout(escrever, tempo);
+                    }
+                }
+                escrever();
+            }
+
+            escrever();
+        </script>
+    </body>
+</html>
